@@ -1,41 +1,46 @@
 import { Document, Page, pdfjs } from "react-pdf";
 import { useState } from "react";
-import "react-pdf/dist/esm/Page/TextLayer.css";
-import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+import "react-pdf/dist/Page/TextLayer.css";
+import "react-pdf/dist/Page/AnnotationLayer.css";
 
-// Set up the PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// Use the locally bundled worker so the viewer works without hitting the network.
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 function PdfViewer({ src }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const pageWidth =
+    typeof window !== "undefined"
+      ? Math.min(720, window.innerWidth - 48)
+      : 720;
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="d-flex flex-column align-items-center w-100">
       <Document file={src} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} width={600} />
+        <Page pageNumber={pageNumber} width={pageWidth} />
       </Document>
 
       {numPages && (
-        <div className="mt-4 flex items-center gap-2">
+        <div className="mt-3 d-flex align-items-center gap-2">
           <button
             onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}
             disabled={pageNumber <= 1}
-            className="bg-gray-200 px-3 py-1 rounded disabled:opacity-50"
+            className="btn btn-outline-dark btn-sm"
           >
             Prev
           </button>
-          <span>
+          <span className="fw-semibold">
             Page {pageNumber} of {numPages}
           </span>
           <button
             onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
             disabled={pageNumber >= numPages}
-            className="bg-gray-200 px-3 py-1 rounded disabled:opacity-50"
+            className="btn btn-outline-dark btn-sm"
           >
             Next
           </button>
