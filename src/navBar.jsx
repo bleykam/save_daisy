@@ -8,7 +8,7 @@ export default function NavBar() {
     return (
       <Nav justify variant="tabs" defaultActiveKey="/home">
     <Nav.Item>
-      <Nav.Link href="/home">Active</Nav.Link>
+      <Nav.Link href="/home">Home</Nav.Link>
     </Nav.Item>
     <Nav.Item>
       <Nav.Link href="../src/assets/Dan_Pennny_Texts.html">Texts with Dan</Nav.Link>
@@ -17,12 +17,12 @@ export default function NavBar() {
       <Nav.Link href="../src/assets/Shayna_Penny_Texts.html">Texts with Shayna</Nav.Link>
     </Nav.Item>
     <Nav.Item>
-      <Nav.Link href="save_penelope/src/assets/Penny_Blue_Pearl.pdf">
+      <Nav.Link href="../src/Penny_BluePearl_Pg1.png ">
         Blue Pearl Vet Report
       </Nav.Link>
     </Nav.Item>
     <Nav.Item>
-      <Nav.Link href="save_penelope/src/assets/Penny_Bond_Vet.pdf">
+      <Nav.Link href="/bondVet">
         Bond Vet Report
       </Nav.Link>
     </Nav.Item>

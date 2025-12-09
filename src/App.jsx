@@ -11,12 +11,18 @@ import Nav from 'react-bootstrap/Nav';
 import Shayna from '../src/assets/Shayna_Head.png';
 import Daniel from '../src/assets/dr_dan_kim.jpg';
 
+
+
 export default function App() {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
        
        <h1 className="display-1 fw-bold mb-4">SAVE PENELOPE</h1>
        <NavBar />
+       <div className="App">
+      <h1 className="text-2xl font-bold mb-4">PDF Viewer</h1>
+     
+    </div>
        <Container fluid className="my-md-3">
       <Row className="d-md-flex flex-md-equal w-100">
         {/* Left column */}
@@ -78,10 +84,7 @@ export default function App() {
 
 
    <ContainerTop />
-   <Nav.Item>
-      <Nav.Link href="../src/assets/Dan_Pennny_Texts.html">Texts with Dan</Nav.Link>
-    </Nav.Item>
-   
+
   
 
    
