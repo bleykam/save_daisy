@@ -1,0 +1,132 @@
+body {
+    font-size: 14px;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    line-height: 1.4;
+    background: #eeeeee;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.left {
+    align-items: flex-start;
+}
+
+.right {
+    align-items: flex-end;
+}
+
+.header {
+    text-align: center;
+    color: #777;
+    margin-top: 10px;
+}
+
+.date {
+    color: #777;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.date.first {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bubble {
+    position: relative;
+    padding: 10px 10px;
+    margin-bottom: 25px;
+    max-width: 70%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+.bubble:after {
+    position: absolute;
+    content: '';
+    display: block;
+    position: absolute;
+    border-style: solid;
+}
+
+.me {
+    background: #ffffff;
+    color: #333333;
+    align-items: flex-end;
+}
+
+.bubble.me:after {
+    border-width: 8px 0 8px 15px;
+    border-color: transparent #ffffff;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-top: -8px;
+    right: -10px;
+    top: 70%;
+}
+
+.you {
+    background: #ff9800;
+    color: #ffffff;
+    align-items: flex-start;
+}
+
+.bubble.you:after {
+    border-width: 8px 15px 8px 0;
+    border-color: transparent #ff9800;
+    display: block;
+    width: 0;
+    z-index: 1;
+    margin-top: -8px;
+    left: -10px;
+    top: 70%;
+}
+
+span.time {
+    float: right;
+    padding-top: 2px;
+    font-size: 10pt;
+}
+
+span.time.me {
+    color: #cacaca;
+}
+
+span.time.you {
+    color: #fde9ca;
+}
+
+.multimedia {
+    margin-top: 4px;
+    margin-bottom: 25px;
+}
+
+.multimedia.img {
+    max-width: 230px;
+    border-radius: 3%;
+}
+
+.multimedia.video {
+    max-width: 230px;
+    border-radius: 3%;
+}
+
+@media only screen and (min-device-width: 240px) and (max-device-width: 768px) {
+    body {
+        font-size: 18px;
+        width: 90%;
+    }
+    .date {
+        font-size: 18px;
+    }
+}

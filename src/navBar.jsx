@@ -1,35 +1,25 @@
-import "./App.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import Nav from "react-bootstrap/Nav";
+import {Navbar, Nav, Container} from "react-bootstrap";
 
-const HOME_PATH = "/";
-const PDF_PATH = "/pdfs";
 
-export default function NavBar({ currentPath = HOME_PATH, onNavigate }) {
-  const handleNavigate = (event, path) => {
-    if (!onNavigate) return;
-    event.preventDefault();
-    onNavigate(path);
-  };
+
+
+export default function NavBar() {
 
   return (
-    <Nav justify variant="tabs" activeKey={currentPath}>
-      <Nav.Item>
-        <Nav.Link href={HOME_PATH} active={currentPath === HOME_PATH} onClick={(e) => handleNavigate(e, HOME_PATH)}>
-          Home
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="../src/assets/Dan_Pennny_Texts.html">Texts with Dan</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href="../src/assets/Shayna_Penny_Texts.html">Texts with Shayna</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link href={PDF_PATH} active={currentPath === PDF_PATH} onClick={(e) => handleNavigate(e, PDF_PATH)}>
-          Vet Reports
-        </Nav.Link>
-      </Nav.Item>
-    </Nav>
+    <Navbar bg="dark" variant="dark" expand="lg">
+        <Container className="px-5">
+          <Navbar.Brand href="#!">Penelope</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarSupportedContent" />
+          <Navbar.Collapse id="navbarSupportedContent">
+            <Nav className="ms-auto mb-2 mb-lg-0">
+              <Nav.Link active href="/">Home</Nav.Link>
+              <Nav.Link href="/dan-texts">Dan Texts</Nav.Link>
+              <Nav.Link href="/pdfs">Vet Reports</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
   );
 }

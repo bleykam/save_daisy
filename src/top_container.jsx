@@ -5,14 +5,20 @@ import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import { ListGroup } from "react-bootstrap";
 import Stone from "./assets/penny_stone.png";
+import Cruelty from "./cruelty.jsx";
 
 function ContainerTop() {
+
   return (
     <section className="w-100 my-4">
-      <Container fluid="lg">
-        <Card className="shadow-sm border-0 rounded-4 info-card">
-          <Card.Body className="p-4 p-md-5 d-flex flex-column align-items-center gap-4">
-            <div className="text-center w-100" style={{ maxWidth: "420px" }}>
+        
+      <Container fluid>
+       
+        <Row className="mt-5 align-items-center">  
+          <Col className="d-flex flex-column align-items-center justify-content-center">
+    
+         
+            <div className="text-center w-100" style={{ maxWidth: "800px" }}>
               <Image
                 src={Stone}
                 fluid
@@ -20,6 +26,22 @@ function ContainerTop() {
                 className="rounded-3 shadow-sm"
               />
             </div>
+            
+     
+          </Col>
+        </Row>
+         <Row>
+          <Col className="mb-4 mb-lg-0 d-flex flex-column justify-content-center">
+          
+            <p className="lead mb-4">
+              A large, painful, and life-threatening bladder stone that required
+              surgical removal to save her life.
+            </p>
+            <Cruelty />
+          </Col>
+        </Row>
+            <Card className="shadow-sm border-0 rounded-4 info-card mt-4">
+          <Card.Body className="p-4 p-md-5 d-flex flex-column align-items-center gap-4">
 
             <div className="text-start info-body w-100">
               <p className="text-uppercase fw-bold small text-secondary mb-1">Why this matters</p>

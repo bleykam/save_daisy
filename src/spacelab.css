@@ -12282,4 +12282,124 @@ textarea.form-control-lg {
     text-decoration: none;
     color: var(--bs-white);
    }
-  
+  /* Layout container */
+.sms-chat {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f6f7f9;
+  border: 1px solid #e6e8ee;
+  border-radius: 14px;
+}
+
+/* Optional date dividers */
+.sms-divider {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0 2px;
+}
+.sms-divider > span {
+  font-size: 12px;
+  color: #667085;
+  background: #ffffff;
+  border: 1px solid #e6e8ee;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* Each message row aligns left or right */
+.sms-row {
+  display: flex;
+  width: 100%;
+}
+.sms-row.in {
+  justify-content: flex-start;
+}
+.sms-row.out {
+  justify-content: flex-end;
+}
+
+/* Bubble */
+.sms-bubble {
+  max-width: min(640px, 86%);
+  padding: 10px 12px;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.06);
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  line-height: 1.35;
+  word-wrap: break-word;
+  white-space: pre-wrap; /* preserves line breaks */
+}
+
+/* Incoming vs outgoing styling */
+.sms-bubble.in {
+  background: #ffffff;
+}
+.sms-bubble.out {
+  background: #e8f1ff;
+}
+
+/* “Tail” (optional) */
+.sms-bubble.in::after,
+.sms-bubble.out::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  border: 1px solid rgba(16, 24, 40, 0.08);
+}
+.sms-bubble.in::after {
+  left: -6px;
+  background: #ffffff;
+  border-right: none;
+  border-top: none;
+}
+.sms-bubble.out::after {
+  right: -6px;
+  background: #e8f1ff;
+  border-left: none;
+  border-top: none;
+}
+
+/* Metadata row */
+.sms-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #667085;
+}
+.sms-who {
+  font-weight: 600;
+  color: #344054;
+}
+.sms-time {
+  white-space: nowrap;
+}
+
+/* Message text */
+.sms-text {
+  font-size: 14px;
+  color: #101828;
+}
+
+/* Mobile tightening */
+@media (max-width: 480px) {
+  .sms-chat {
+    padding: 12px 10px;
+  }
+  .sms-bubble {
+    max-width: 92%;
+    padding: 9px 10px;
+  }
+  .sms-text {
+    font-size: 13px;
+  }
+}
