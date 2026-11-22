@@ -11,9 +11,9 @@ const root = document.getElementById("root");
 
 // Create a root and render the App into the #root div in index.html
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React>
     <App />
     <Analytics /> 
 
-  </React.StrictMode>
+  </React>
 )
