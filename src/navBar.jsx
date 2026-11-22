@@ -16,6 +16,7 @@ export default function NavBar() {
             <Nav className="ms-auto mb-2 mb-lg-0">
               <Nav.Link active href="/">Home</Nav.Link>
               <Nav.Link href="/dan-texts">Dan Texts</Nav.Link>
+              <Nav.Link href="/shayna-texts">Shayna Texts</Nav.Link>
               <Nav.Link href="/pdfs">Vet Reports</Nav.Link>
             </Nav>
           </Navbar.Collapse>

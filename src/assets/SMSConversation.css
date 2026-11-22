@@ -1,0 +1,201 @@
+.sms-page {
+  min-height: 100vh;
+  background: #f3f5f8;
+  color: #202633;
+}
+
+.sms-viewer {
+  max-width: 980px;
+  overflow: hidden;
+  border: 1px solid #e2e6ec;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(26, 39, 56, 0.07);
+}
+
+.sms-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e8ebf0;
+  background: #fff;
+}
+
+.sms-eyebrow {
+  margin-bottom: 0.2rem;
+  color: #718096;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.sms-title {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  font-weight: 700;
+}
+
+.sms-subtitle {
+  margin-top: 0.25rem;
+  color: #788395;
+  font-size: 0.82rem;
+}
+
+.sms-export-badge {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #e5e9ef;
+  font-weight: 600;
+}
+
+.sms-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.25rem clamp(0.75rem, 3vw, 2rem) 2rem;
+  background: #f8fafc;
+}
+
+.sms-date-row {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 0.55rem;
+}
+
+.sms-date-row span {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid #e6eaf0;
+  border-radius: 999px;
+  background: #fff;
+  color: #697586;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+.sms-message-row {
+  display: flex;
+  width: 100%;
+}
+
+.sms-message-row.sent {
+  justify-content: flex-end;
+}
+
+.sms-message-row.received {
+  justify-content: flex-start;
+}
+
+.sms-bubble {
+  width: fit-content;
+  max-width: min(78%, 680px);
+  padding: 0.72rem 0.9rem 0.5rem;
+  border: 1px solid #e4e8ee;
+  border-radius: 16px;
+  background: #fff;
+  color: #202633;
+  box-shadow: 0 1px 2px rgba(26, 39, 56, 0.04);
+  overflow-wrap: anywhere;
+}
+
+.sms-bubble.sent {
+  border-color: #c9e7d6;
+  border-bottom-right-radius: 5px;
+  background: #dcf8e8;
+}
+
+.sms-bubble.received {
+  border-bottom-left-radius: 5px;
+  background: #fff;
+}
+
+.sms-bubble.is-reaction {
+  border-radius: 14px;
+  background: #fff8e8;
+  border-color: #f0dfb8;
+}
+
+.sms-sender {
+  margin-bottom: 0.2rem;
+  color: #66758a;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.sms-message-text {
+  white-space: pre-wrap;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.sms-time {
+  display: block;
+  margin-top: 0.35rem;
+  color: #748092;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.sms-attachment-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: min(78%, 560px);
+  padding: 0.45rem;
+  border: 1px solid #e2e6ec;
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.sms-attachment {
+  display: block;
+  max-height: 440px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 9px;
+  object-fit: contain;
+}
+
+.sms-attachment-caption {
+  padding: 0.35rem 0.2rem 0.05rem;
+  color: #778395;
+  font-size: 0.7rem;
+}
+
+.sms-image-modal .modal-body img {
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+@media (max-width: 575.98px) {
+  .sms-viewer {
+    border-radius: 12px;
+  }
+
+  .sms-header {
+    padding: 1rem;
+  }
+
+  .sms-thread {
+    gap: 0.45rem;
+    padding: 0.8rem 0.65rem 1.5rem;
+  }
+
+  .sms-bubble,
+  .sms-attachment-button {
+    max-width: 88%;
+  }
+
+  .sms-message-text {
+    font-size: 0.9rem;
+  }
+
+  .sms-attachment {
+    max-height: 340px;
+  }
+}

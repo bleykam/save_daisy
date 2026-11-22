@@ -6,7 +6,7 @@ export default function HomePage() {
     return (
         <div className="App w-100">
             <SmallBusiness />
-            <ContainerTop />
+       
         </div>
     );
 }

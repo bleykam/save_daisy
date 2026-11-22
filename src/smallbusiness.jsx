@@ -1,22 +1,17 @@
 import {
-  Navbar,
-  Nav,
   Container,
   Row,
   Col,
-  Button,
   Card,
   Image,
   ListGroup
 } from 'react-bootstrap';
-import Cruelty from "./cruelty.jsx";
 import Shayna from "./assets/Shayna_Head.png";
 import Daniel from "./assets/dr_dan_kim.jpg";
 import Penny from "./assets/Penny_head.png";
-import Stone from "./assets/penny_stone.png";
 import BladderStone from "./assets/bladder_stone.jpg";
 
-export default function SmallBusinessTemplate() {
+function BasicExample() {
     const handleNavigate = (event, path) => {
     if (!onNavigate) return;
     event.preventDefault();
@@ -29,9 +24,45 @@ export default function SmallBusinessTemplate() {
       
 
       {/* Page Content */}
-      <Container className="px-4 px-lg-5">
+      <Container fluid>
         {/* Heading Row */}
-        <Row className="gx-4 gx-lg-5 align-items-center my-5 border border-4 border-primary" style={{maxheight: 400}}>
+        <Row >
+            <Row >
+          {[
+            {
+                title: 'Dr. Daniel Kim',
+      
+                image: Daniel,
+            },
+            {
+                title: 'Penny (Daisy)',
+
+                image: Penny,
+            },
+            {
+                title: 'Shayna Davies',
+     
+                image: Shayna,
+            },
+          ].map((card, idx) => (
+            <Col md={4} className="mb-5" key={idx}>
+              <Card className="h-100">
+                <Card.Body>
+                  <Card.Title as="h2">{card.title}</Card.Title>
+                    <Image
+            fluid
+            rounded
+            className="mb-3"
+            src={card.image}
+            alt={card.title}
+          />
+                  <Card.Text>{card.text}</Card.Text>
+                </Card.Body>
+          
+              </Card>
+            </Col>
+          ))}
+        </Row>
           <Col>
           <h5>
                 Penny's Bladder Stone
@@ -59,6 +90,15 @@ export default function SmallBusinessTemplate() {
             />
           </Col>
         </Row>
+         <Card bg="secondary" text="white" className="my-5 py-4 text-center">
+          <Card.Body>
+            <p className="m-0">
+                Penny had a large, painful, and life-threatening bladder stone that required
+                surgical removal to save her life.  But Dan and Shayna choose to let her die. 
+                The dog suffered immensely before passing away.
+            </p>
+          </Card.Body>
+        </Card>
          <Card className="shadow-sm border-0 rounded-4 info-card mt-4">
           <Card.Body className="p-4 p-md-5 d-flex flex-column align-items-center gap-4">
 
@@ -93,100 +133,12 @@ export default function SmallBusinessTemplate() {
           </Card.Body>
         </Card>
 
-        {/* Call to Action */}
-        <Card bg="secondary" text="white" className="my-5 py-4 text-center">
-          <Card.Body>
-            <p className="m-0">
-                Penny had a large, painful, and life-threatening bladder stone that required
-                surgical removal to save her life.  But Dan and Shayna choose to let her die. 
-                The dog suffered immensely before passing away.
-            </p>
-          </Card.Body>
-        </Card>
-    <Row className="gx-4 gx-lg-5 align-items-center my-5">
-          <Col lg={3}>
-            <Image
-              fluid
-              rounded
-              className="mb-4 mb-lg-0 border border-4 border-primary mb-3"
-              src={Daniel}
-              alt="Hero"
-            />
-            <p className="mt-2">Dr. Daniel Kim</p>
-            </Col>
-            <Col lg={3}>
-            <Image
-              fluid
-              rounded
-              className="mb-4 mb-lg-0 border border-4 border-primary mb-3"
-              src={Shayna}
-              alt="Hero"
-            />
-            <p className="mt-2">Shayna Davies</p>
-          </Col>
-          <Col lg={5}>
-            <h3 className="fw-light"> A person who intentionally lets a dog die from a treatable condition like a bladder stone could be described using terms that reflect extreme negligence, cruelty, and lack of empathy.</h3>
-            <p>
-               
-            </p>
-            <Button variant="primary" href="#!">
-              Call to Action!
-            </Button>
-          </Col>
-        </Row>
-        <Cruelty />
-
-        {/* Content Row */}
-        <Row className="gx-4 gx-lg-5">
-          {[
-            {
-                title: 'Dr. Daniel Kim',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-                image: Daniel,
-            },
-            {
-                title: 'Penny (Daisy)',
-                text: 'Quod tenetur ex natus at dolorem enim!',
-                image: Penny,
-            },
-            {
-                title: 'Shayna Davies',
-                text: 'Rem magni quas ex numquam, maxime minus.',
-                image: Shayna,
-            },
-          ].map((card, idx) => (
-            <Col md={4} className="mb-5" key={idx}>
-              <Card className="h-100">
-                <Card.Body>
-                  <Card.Title as="h2">{card.title}</Card.Title>
-                    <Image
-            fluid
-            rounded
-            className="mb-3"
-            src={card.image}
-            alt={card.title}
-          />
-                  <Card.Text>{card.text}</Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Button size="sm" variant="primary" href="#!">
-                    More Info
-                  </Button>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+     
+      
       </Container>
 
-      {/* Footer */}
-      <footer className="py-5 bg-dark">
-        <Container className="px-4 px-lg-5">
-          <p className="m-0 text-center text-white">
-            Copyright © Your Website 2023
-          </p>
-        </Container>
-      </footer>
+   
     </>
   );
 }
+export default BasicExample;

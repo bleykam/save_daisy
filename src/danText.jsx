@@ -1,169 +1,191 @@
-import React from "react";
-import { Container, Row, Col, Card, Badge } from "react-bootstrap";
-import "./sms-bubbles.css";
-
+import { useMemo, useState } from 'react';
+import {
+  Badge,
+  Button,
+  Container,
+  Image,
+  Modal,
+  Stack,
+} from 'react-bootstrap';
+import smsHtml from "./assets/Dan_Pennny_Texts.html?raw";
+import "./SMSConversation.css";
 /**
- * React-Bootstrap render of your HTML SMS snippet.
- * Uses your existing sms-bubbles.css classes for bubble styling.
+ * Renders the supplied SMSBackUp HTML export as a responsive React-Bootstrap
+ * conversation. The original export is imported as a Vite raw string so its
+ * embedded base64 images remain self-contained.
+ *
+ * Props:
+ *   title       Optional conversation heading (default: "SMS Conversation")
+ *   html        Optional replacement HTML export string
+ *   className   Optional class applied to the outer container
  */
-export default function SmsBackupThread() {
+export default function SMSConversation({
+  title = 'SMS Conversation',
+  html = smsHtml,
+  className = '',
+}) {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const entries = useMemo(() => parseSmsExport(html), [html]);
+
   return (
-    <Container className="py-4">
-      <Row className="justify-content-center">
-        <Col xs={12} lg={10} xl={9}>
-          <div className="sms-chat" role="log" aria-label="Text message conversation">
-            {/* May 23, 2025 */}
-            <div className="sms-divider" aria-hidden="true">
-              <span>May 23, 2025</span>
-            </div>
-
-            <div className="sms-row out">
-              <div className="sms-bubble out">
-                <div className="sms-meta">
-                  <span className="sms-who">Me</span>
-                  <span className="sms-time">6:19 PM</span>
-                </div>
-                <div className="sms-text">
-                  Hi! I really don't think Penelope is ok. She's constantly peeing and it frequently contains
-                  blood. I used some urine test strips I had for Godzilla then video chatted with my aunt who is
-                  a vet and she really thinks Penelope needs to be seen. Her thought was she probably has crystals
-                  and it's uncomfortable for her. I can take Penelope to the vet tomorrow if you're ok with it
-                </div>
-              </div>
-            </div>
-
-            {/* May 27, 2025 */}
-            <div className="sms-divider" aria-hidden="true">
-              <span>May 27, 2025</span>
-            </div>
-
-            <div className="sms-row out">
-              <div className="sms-bubble out">
-                <div className="sms-meta">
-                  <span className="sms-who">Me</span>
-                  <span className="sms-time">6:36 PM</span>
-                </div>
-                <div className="sms-text">Do you know about what time you're picking Penny up tonight</div>
-              </div>
-            </div>
-
-            <div className="sms-row in">
-              <div className="sms-bubble in">
-                <div className="sms-meta">
-                  <span className="sms-who">Dan And Penelope</span>
-                  <span className="sms-time">6:53 PM</span>
-                </div>
-                <div className="sms-text">Is around 8pm ok?</div>
-              </div>
-            </div>
-
-            <div className="sms-row in">
-              <div className="sms-bubble in">
-                <div className="sms-meta">
-                  <span className="sms-who">Dan And Penelope</span>
-                  <span className="sms-time">6:54 PM</span>
-                </div>
-                <div className="sms-text">
-                  {"❤️"} to “Hi! I really don't think Penelope is ok. She's constantly peeing and it frequently contains
-                  blood. I used some urine test strips I had for Godzilla then video chatted with my aunt in Missouri who
-                  is a vet and she really thinks Penelope needs to be seen. Her thought was she probably has crystals and
-                  it's uncomfortable for her. I can take Penelope to the vet tomorrow if you're ok with it”
-                </div>
-              </div>
-            </div>
-
-            <div className="sms-row in">
-              <div className="sms-bubble in">
-                <div className="sms-meta">
-                  <span className="sms-who">Dan And Penelope</span>
-                  <span className="sms-time">7:35 PM</span>
-                </div>
-                <div className="sms-text">Hi Brittany I’m downstairs if you’re ready to bring Penny down</div>
-              </div>
-            </div>
-
-            <div className="sms-row out">
-              <div className="sms-bubble out">
-                <div className="sms-meta">
-                  <span className="sms-who">Me</span>
-                  <span className="sms-time">7:36 PM</span>
-                </div>
-                <div className="sms-text">{"👍"} to “Hi Brittany I’m downstairs if you’re ready to bring Penny down”</div>
-              </div>
-            </div>
-
-            {/* Jul 8, 2025 */}
-            <div className="sms-divider" aria-hidden="true">
-              <span>Jul 8, 2025</span>
-            </div>
-
-            <div className="sms-row in">
-              <div className="sms-bubble in">
-                <div className="sms-meta">
-                  <span className="sms-who">Dan And Penelope</span>
-                  <span className="sms-time">7:17 PM</span>
-                </div>
-                <div className="sms-text">
-                  Hi Brittany, can you take Penny from this Thursday morning to Sunday afternoon?
-                </div>
-              </div>
-            </div>
-
-            <div className="sms-row out">
-              <div className="sms-bubble out">
-                <div className="sms-meta">
-                  <span className="sms-who">Me</span>
-                  <span className="sms-time">8:19 PM</span>
-                </div>
-                <div className="sms-text">Yes</div>
-              </div>
-            </div>
-
-            {/* Jul 10, 2025 */}
-            <div className="sms-divider" aria-hidden="true">
-              <span>Jul 10, 2025</span>
-            </div>
-
-            <div className="sms-row in">
-              <div className="sms-bubble in">
-                <div className="sms-meta">
-                  <span className="sms-who">Dan And Penelope</span>
-                  <span className="sms-time">8:08 AM</span>
-                </div>
-                <div className="sms-text">Hi Brittany can we come by now?</div>
-              </div>
-            </div>
-
-            <div className="sms-row out">
-              <div className="sms-bubble out">
-                <div className="sms-meta">
-                  <span className="sms-who">Me</span>
-                  <span className="sms-time">8:15 AM</span>
-                </div>
-                <div className="sms-text">Sure 🙂</div>
-              </div>
-            </div>
-
-            {/* Jul 13, 2025 */}
-            <div className="sms-divider" aria-hidden="true">
-              <span>Jul 13, 2025</span>
-            </div>
-
-            <div className="sms-row out">
-              <div className="sms-bubble out">
-                <div className="sms-meta">
-                  <span className="sms-who">Me</span>
-                  <span className="sms-time">6:12 PM</span>
-                </div>
-                <div className="sms-text">
-                  Took your dog to the vet. She is not ok. She has and enlarged/round heart and a mass in her
-                  stomach. I was told to take her to the emergency vet because she'll probably need surgery tomorrow
-                </div>
-              </div>
+    <Container fluid className={`sms-page py-3 py-md-4 ${className}`}>
+      <section className="sms-viewer mx-auto" aria-label={title}>
+        <header className="sms-header">
+          <div>
+            <div className="sms-eyebrow">Message history</div>
+            <h1 className="sms-title">{title}</h1>
+            <div className="sms-subtitle">
+              {entries.reduce((count, item) => count + (item.type === 'message' ? 1 : 0), 0)} messages
+              <span aria-hidden="true"> · </span>
+              {entries.filter((item) => item.type === 'image').length} attachments
             </div>
           </div>
-        </Col>
-      </Row>
+          <Badge bg="light" text="dark" className="sms-export-badge">
+            SMS export
+          </Badge>
+        </header>
+
+        <main className="sms-thread" aria-label="Conversation messages">
+          {entries.map((entry) => {
+            if (entry.type === 'date') {
+              return (
+                <div className="sms-date-row" key={entry.id}>
+                  <span>{entry.date}</span>
+                </div>
+              );
+            }
+
+            if (entry.type === 'image') {
+              return (
+                <div className={`sms-message-row ${entry.side}`} key={entry.id}>
+                  <button
+                    type="button"
+                    className="sms-attachment-button"
+                    onClick={() => setSelectedImage(entry)}
+                    aria-label={`Open image attachment ${entry.index}`}
+                  >
+                    <Image
+                      src={entry.src}
+                      alt={entry.alt || `Image attachment ${entry.index}`}
+                      fluid
+                      className="sms-attachment"
+                    />
+                    <span className="sms-attachment-caption">Image attachment</span>
+                  </button>
+                </div>
+              );
+            }
+
+            return <MessageBubble key={entry.id} message={entry} />;
+          })}
+        </main>
+      </section>
+
+      <Modal
+        show={Boolean(selectedImage)}
+        onHide={() => setSelectedImage(null)}
+        centered
+        size="lg"
+        contentClassName="sms-image-modal"
+        aria-label="Image attachment preview"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Image attachment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          {selectedImage && (
+            <Image src={selectedImage.src} alt={selectedImage.alt || 'Conversation attachment'} fluid />
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setSelectedImage(null)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
+}
+
+function MessageBubble({ message }) {
+  return (
+    <div className={`sms-message-row ${message.side}`}>
+      <article className={`sms-bubble ${message.side} ${message.isReaction ? 'is-reaction' : ''}`}>
+        <div className="sms-sender">{message.sender}</div>
+        <div className="sms-message-text">{message.text}</div>
+        {message.time && <time className="sms-time">{message.time}</time>}
+      </article>
+    </div>
+  );
+}
+
+/** Convert the original export's ordered body children into date/message/media entries. */
+function parseSmsExport(source) {
+  if (typeof window === 'undefined' || !source) return [];
+
+  const doc = new window.DOMParser().parseFromString(source, 'text/html');
+  const entries = [];
+  let currentDate = '';
+  let imageIndex = 0;
+  let id = 0;
+
+  Array.from(doc.body.children).forEach((element) => {
+    const classes = element.classList;
+
+    if (classes.contains('date')) {
+      currentDate = element.textContent.trim();
+      entries.push({ type: 'date', date: currentDate, id: `date-${id++}` });
+      return;
+    }
+
+    if (!classes.contains('messages')) return;
+
+    const side = classes.contains('right') ? 'sent' : 'received';
+
+    Array.from(element.children).forEach((child) => {
+      if (child.tagName === 'IMG') {
+        imageIndex += 1;
+        entries.push({
+          type: 'image',
+          id: `image-${id++}`,
+          date: currentDate,
+          side,
+          index: imageIndex,
+          src: child.getAttribute('src') || '',
+          alt: child.getAttribute('alt') || `Image attachment ${imageIndex}`,
+        });
+        return;
+      }
+
+      if (!child.classList.contains('bubble')) return;
+
+      const sender = child.querySelector('strong')?.textContent.trim() ||
+        (side === 'sent' ? 'Me' : 'Other participant');
+      const time = child.querySelector('.time')?.textContent.trim() || '';
+      const content = child.cloneNode(true);
+      content.querySelector('strong')?.remove();
+      content.querySelector('.time')?.remove();
+
+      // Keep line breaks, text, emoji, and reaction quotations without injecting HTML.
+      content.querySelectorAll('br').forEach((br) => br.replaceWith('\n'));
+      const text = content.textContent
+        .replace(/^[\s:：]+/, '')
+        .replace(/[\u200a\u200b\u200c\u200d\ufeff]/g, '')
+        .trim();
+
+      entries.push({
+        type: 'message',
+        id: `message-${id++}`,
+        date: currentDate,
+        side,
+        sender,
+        time,
+        text,
+        isReaction: /(?:❤️|♥️|👍|👎|😂|‼️|‼|❗|❓|😮|😢|😡|💕|💯)\s*to\s*[“"]?/u.test(text),
+      });
+    });
+  });
+
+  return entries;
 }

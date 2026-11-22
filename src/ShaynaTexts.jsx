@@ -1,5 +1,4 @@
-import React from "react";
-import { Container, Row, Col, Card, Alert } from "react-bootstrap";
+import { Container, Row, Col, Alert} from "react-bootstrap";
 import "./sms-bubbles.css";
 
 /**
@@ -7,7 +6,7 @@ import "./sms-bubbles.css";
  * Uses the same bubble styling you already have in sms-bubbles.css via:
  * - sms-chat / sms-divider / sms-row / sms-bubble / sms-meta / sms-text
  */
-export default function SmsThreadShayna() {vercel
+export default function SmsThreadShayna() {
   
   return (
     <Container className="py-4">

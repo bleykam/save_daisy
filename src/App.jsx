@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+
 import NavBar from "./navBar.jsx";
 import PdfPage from "./PdfPage.jsx";
 import HomePage from "./Home.jsx";
-
+import ThemeProvider from 'react-bootstrap/ThemeProvider'
 import { BrowserRouter, Routes, Route } from "react-router";
 import DanTextsPage from "./danText.jsx";
 import ShaynaTextsPage from "./ShaynaTexts.jsx";
@@ -18,6 +17,12 @@ export default function App() {
 
   return (
     <>
+    <ThemeProvider
+  breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+  minBreakpoint="xxs"
+>
+
+
   <NavBar />
    
 
@@ -32,6 +37,7 @@ export default function App() {
 
       </BrowserRouter>  
     </div>
+    </ThemeProvider>;
     </>
  
   );
