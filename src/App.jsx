@@ -18,11 +18,12 @@ export default function App() {
   return (
     <>
 
-  <NavBar />
+ 
    
 
     <div>
         <BrowserRouter future={{ v7_startTransition: true }}>
+         <NavBar />
       <Routes>
         <Route path="/" element={<HomePage  />} />
         <Route path="/dan-texts" element={<SMSConversation />} />
